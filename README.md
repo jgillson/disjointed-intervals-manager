@@ -1,0 +1,1 @@
+# disjointed-intervals-manager
