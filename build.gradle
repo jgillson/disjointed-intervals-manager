@@ -1,0 +1,40 @@
+plugins {
+  id 'idea'
+  id 'java'
+}
+
+apply from: "$rootDir/gradle/dependencies.gradle"
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+mainClassName = "com.yourmechanic.DisjointedIntervalsProgram"
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation libraries.commons_collections
+  implementation libraries.commons_csv
+  implementation libraries.commons_io
+  implementation libraries.guava
+  implementation libraries.hamcrest
+  implementation libraries.junit_jupiter
+}
+
+test {
+  useJUnitPlatform {}
+  testLogging.showStandardStreams = true
+
+  beforeTest { descriptor ->
+    logger.lifecycle("Running test: " + descriptor)
+  }
+
+  onOutput { descriptor, event ->
+    logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+  }
+}
+
+run{
+  standardInput = System.in
+}

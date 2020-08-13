@@ -1,0 +1,22 @@
+ext {
+  versions = [:]
+  libraries = [:]
+}
+
+versions.commons_collections = '4.3'
+versions.commons_csv = '1.8'
+versions.commons_io = '2.7'
+versions.guava = '29.0-jre'
+versions.hamcrest = '2.1'
+versions.junit_jupiter = '5.4.1'
+
+libraries.commons_collections = "org.apache.commons:commons-collections4:$versions.commons_collections"
+libraries.commons_csv = "org.apache.commons:commons-csv:$versions.commons_csv"
+libraries.commons_io = "commons-io:commons-io:$versions.commons_io"
+libraries.guava = "com.google.guava:guava:$versions.guava"
+libraries.hamcrest = "org.hamcrest:hamcrest:$versions.hamcrest"
+libraries.junit_jupiter = [
+  "org.junit.jupiter:junit-jupiter-api:$versions.junit_jupiter",
+  "org.junit.jupiter:junit-jupiter-engine:$versions.junit_jupiter"
+]
+
